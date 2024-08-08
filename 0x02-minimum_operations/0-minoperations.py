@@ -2,23 +2,22 @@
 
 """ Minimum Operations """
 
-
 def minOperations(n):
     """
-    Given a text file containing a single character 'H', your text editor supports only two operations: "Copy All" and "Paste." 
-    Given an integer `n`, write a method to determine the minimum number of operations required to produce exactly `n` 'H' characters in the file.
-    - Returns an integer representing the minimum number of operations.
-    - If it's not possible to achieve exactly `n` 'H' characters, return 0.
-    
+    Given a text file with one 'H', and only "Copy All" and "Paste"
+    operations available, write a method to calculate the minimum number
+    of operations needed to get exactly `n` 'H' characters.
+
+    Returns the minimum operations as an integer, or 0 if it's impossible.
     """
     if not isinstance(n, int):
         return 0
 
     op = 0
     i = 2
-    while (i <= n):
-        if not (n % i):
-            n = int(n / i)
+    while i <= n:
+        if n % i == 0:
+            n //= i
             op += i
             i = 1
         i += 1
